@@ -76,6 +76,12 @@ plt.show()
 # %% Del C - Skriv ett program som finner minste og lengste samtale
 
 kl_slett_max = np.argmax(varighet)
+kl_slett_max_var = kl_slett[kl_slett_max]
 varighet_max = varighet[kl_slett_max]
-print("Den lengste samtalen var klokken: ", kl_slett_max, "og varte i: ", varighet_max)
-print("klokkeslett", kl_slett)
+print("Den lengste samtalen var klokken: ", kl_slett_max_var, "og varte i: ", varighet_max)
+
+# %% Del D - Skriv ett program som regner ut gjennomsnittelig samtaletid basert på alle hendvend i uke 24
+
+
+
+
