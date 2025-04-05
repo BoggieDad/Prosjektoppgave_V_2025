@@ -23,11 +23,6 @@ kl_slett = sup_w_24['Klokkeslett'].to_numpy()
 varighet = sup_w_24['Varighet'].to_numpy()
 score = sup_w_24['Tilfredshet'].to_numpy()
 
-# Skriv ut NumPy-arrays
-#print("Kolonne 1:", u_dag)
-#print("Kolonne 2:", kl_slett)
-#print("Kolonne 3:", varighet)
-#print("Kolonne 4:", score)
 
 # %% Del B - Skrive ett program som finer antall hendvendelser gor hver ukeda i uken 24 og hvis det i ett plott
 
@@ -36,7 +31,8 @@ henv_tir = np.sum(u_dag == 'Tirsdag')
 henv_ons = np.sum(u_dag == 'Onsdag')
 henv_tor = np.sum(u_dag == 'Torsdag')
 henv_fre = np.sum(u_dag == 'Fredag')
-print("Utskrift av oppgave del b, dette blir også plottet i ett eget plott")
+
+print("/n === Utskrift av oppgave del b, dette blir også plottet i ett eget plott ===")
 print("Antall hendvendelser på mandag er: ", henv_man, "tirsdag er:", henv_tir, "onsdag er:", henv_ons, "torsdag er:", henv_tor, "og fredag er:", henv_fre)
 
 print("Se også plottet for grafisk fremstilling")
@@ -74,10 +70,23 @@ plt.show()
 
 # %% Del C - Skriv ett program som finner minste og lengste samtale
 
+# Indeksene for lengste og korteste samtale
 kl_slett_max = np.argmax(varighet)
 kl_slett_max_var = kl_slett[kl_slett_max]
 varighet_max = varighet[kl_slett_max]
-print("Den lengste samtalen var klokken: ", kl_slett_max_var, "og varte i: ", varighet_max)
+
+kl_slett_min = np.argmin(varighet)
+kl_slett_min_var = kl_slett[kl_slett_min]
+varighet_min = varighet[kl_slett_min]
+
+# Finne de ukedagene der det matches den lengste og korteste samtalen
+u_dag_max = u_dag[kl_slett_max]
+u_dag_min = u_dag[kl_slett_min]
+
+
+print("\n=== Del C - Utskrift av den største og minste samtale varigheten ===")
+print("Den lengste samtalen var klokken: ", kl_slett_max_var, "paa", u_dag_max, "og varte i: ", varighet_max, "hh:mm:ss")
+print("Den korteste samtalen var klokken: ", kl_slett_min_var, "paa", u_dag_min,"og varte i: ", varighet_min, "hh:mm:ss")
 
 # %% Del D - Skriv ett program som regner ut gjennomsnittelig samtaletid basert på alle hendvend i uke 24
 
@@ -90,6 +99,7 @@ varighet_sek = np.array([
     for tid in varighet])
 
 mid_varighet_sek = np.mean(varighet_sek)
+
 print(f"Middelverdi i sekunder: {mid_varighet_sek:.2f}") #printe ut i sekunder med to desimaler (:.2f )
 print(f"Middelverdi i minutter: {mid_varighet_sek / 60:.2f}") # printe ut minutter med to desimaler
 
@@ -132,10 +142,12 @@ totalt_antall_2 = ant_8_10 + ant_10_12 + ant_12_14 + ant_14_16
         
 # Utskrift av antall per tidsområde
 
+print("\n=== Oppgave del e - Utskrift av antall hendvendelser i intrevallene 08:00-10:00, 10.00 - 12.00, 12.00 - 14.00 og 14.00 - 16.00 ===")
 print(f"Antallet hendvendelser mellom klokka 8 og 10 er: {ant_8_10} fordelt over 5 ukedager")
 print(f"Antallet hendvendelser mellom klokka 10 og 12 er: {ant_10_12} fordelt over 5 ukedager")
 print(f"Antallet hendvendelser mellom klokka 12 og 14 er: {ant_12_14} fordelt over 5 ukedager")
 print(f"Antallet hendvendelser mellom klokka 14 og 16 er: {ant_14_16} fordelt over 5 ukedager")
+print("\n=== Test og sammenligning at alle entries er tatt med. ===")
 print(f"Som en test, totalt antall ved å summere hendvedelser per dag, som er: {totalt_antall_1} skal være lik summering av tidsperioder {totalt_antall_2}")
 
 # %% Del f - kundens tilfredshet 
