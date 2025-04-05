@@ -90,9 +90,6 @@ varighet_sek = np.array([
     sum(int(t) * 60**i for i, t in enumerate(reversed(tid.split(":"))))
     for tid in varighet])
 
-print("Varihet:", varighet)
-print("Varighet_sek", varighet_sek)
-
 mid_varighet_sek = np.mean(varighet_sek)
 print(f"Middelverdi i sekunder: {mid_varighet_sek:.2f}") #printe ut i sekunder med to desimaler (:.2f )
 print(f"Middelverdi i minutter: {mid_varighet_sek / 60:.2f}") # printe ut minutter med to desimaler
@@ -104,3 +101,6 @@ tid_formatert = f"{int(timer):02}:{int(minutter):02}:{int(sekunder):02}"
 
 print(f"Middelverdi i sekunder: {mid_varighet_sek:.4f}") #med fire desimaler
 print(f"Middelverdi som hh:mm:ss: {tid_formatert}") #utskrift som viser orginalt tidsformat.
+
+# %% Del e - Andtall hendvendelser per 2-timers bolk.
+
