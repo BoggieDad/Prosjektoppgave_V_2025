@@ -47,7 +47,8 @@ order = ['Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag']
 
 soterte_dager = sorted(zip(per_dag, ant_per_dag), key=lambda x: order.index(x[0]))
 
-# Skrive ut resultatene 
+# Skrive ut resultatene
+print("\nAlternativ måte å skrive ut antall hendvendelser i oppgave del b på") 
 for dag, antall in soterte_dager:
     print(f"{dag} var det {antall} support hendvendelser.")
 
@@ -182,7 +183,7 @@ perc_nega = (ant_neg/tot_ant_score)
 
 NPS = round(((perc_prom - perc_nega)*100))
 
-print("\nAntallet kunder som er positive er: ", round(perc_prom*100), " prosent mens prosenten nøytrale er", round(perc_pass*100), "prosent og prosent andel negative er: ", round(perc_nega*100), "prosent")
+print("\nAntallet kunder som er positive er:", round(perc_prom*100), " prosent mens prosentandelen nøytrale er", round(perc_pass*100), "prosent og prosentandel negative er:", round(perc_nega*100), "prosent")
 print("Dette vil da gi en Net Promoter Score (NPS) på verdien: ", NPS)
 
 
