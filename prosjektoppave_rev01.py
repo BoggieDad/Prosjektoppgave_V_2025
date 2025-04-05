@@ -24,7 +24,7 @@ varighet = sup_w_24['Varighet'].to_numpy()
 score = sup_w_24['Tilfredshet'].to_numpy()
 
 
-# %% Del B - Skrive ett program som finer antall hendvendelser gor hver ukeda i uken 24 og hvis det i ett plott
+# %% Del B - Skrive ett program som finner antall hendvendelser for hver ukedag i uken 24 og vis det i ett plott
 
 henv_man = np.sum(u_dag == 'Mandag')
 henv_tir = np.sum(u_dag == 'Tirsdag')
@@ -32,10 +32,9 @@ henv_ons = np.sum(u_dag == 'Onsdag')
 henv_tor = np.sum(u_dag == 'Torsdag')
 henv_fre = np.sum(u_dag == 'Fredag')
 
-print("/n === Utskrift av oppgave del b, dette blir også plottet i ett eget plott ===")
+print("\n === Utskrift av oppgave del b, dette blir også plottet i ett eget plott ===")
 print("Antall hendvendelser på mandag er: ", henv_man, "tirsdag er:", henv_tir, "onsdag er:", henv_ons, "torsdag er:", henv_tor, "og fredag er:", henv_fre)
 
-print("Se også plottet for grafisk fremstilling")
 
 # Telle antall hendelser per dag
 
@@ -52,6 +51,7 @@ soterte_dager = sorted(zip(per_dag, ant_per_dag), key=lambda x: order.index(x[0]
 for dag, antall in soterte_dager:
     print(f"{dag} var det {antall} support hendvendelser.")
 
+print("\nSe også plottet for grafisk fremstilling")
 
 # Sorter data i henhold til ønsket rekkefølge
 sorterte_dager = [order.index(dag) for dag in per_dag] #Sortere slik at dagene blir man til fredag og ikke alfabetisk
@@ -84,7 +84,7 @@ u_dag_max = u_dag[kl_slett_max]
 u_dag_min = u_dag[kl_slett_min]
 
 
-print("\n=== Del C - Utskrift av den største og minste samtale varigheten ===")
+print("\n=== Del c - Utskrift av den største og minste samtale varigheten ===")
 print("Den lengste samtalen var klokken: ", kl_slett_max_var, "paa", u_dag_max, "og varte i: ", varighet_max, "hh:mm:ss")
 print("Den korteste samtalen var klokken: ", kl_slett_min_var, "paa", u_dag_min,"og varte i: ", varighet_min, "hh:mm:ss")
 
@@ -100,7 +100,8 @@ varighet_sek = np.array([
 
 mid_varighet_sek = np.mean(varighet_sek)
 
-print(f"Middelverdi i sekunder: {mid_varighet_sek:.2f}") #printe ut i sekunder med to desimaler (:.2f )
+print("\n=== Del d - Utskrift av middelverdien mellom alle hendvendelsene ===")
+print(f"Middelverdi i sekunder (2 desimaler): {mid_varighet_sek:.2f}") #printe ut i sekunder med to desimaler (:.2f )
 print(f"Middelverdi i minutter: {mid_varighet_sek / 60:.2f}") # printe ut minutter med to desimaler
 
 # Formatere tilbake til hh:mm:ss format
@@ -108,7 +109,7 @@ timer, resterende_sekunder = divmod(mid_varighet_sek, 3600)
 minutter, sekunder = divmod(resterende_sekunder, 60)
 tid_formatert = f"{int(timer):02}:{int(minutter):02}:{int(sekunder):02}"
 
-print(f"Middelverdi i sekunder: {mid_varighet_sek:.4f}") #med fire desimaler
+print(f"\nMiddelverdi i sekunder (4 desimaler): {mid_varighet_sek:.4f}") #med fire desimaler
 print(f"Middelverdi som hh:mm:ss: {tid_formatert}") #utskrift som viser orginalt tidsformat.
 
 # %% Del e - Andtall hendvendelser per 2-timers bolk.
@@ -164,13 +165,14 @@ for ant_pos_noyt_neg in score:
     elif 9 <= ant_pos_noyt_neg <=10:
         ant_pos += 1
         
+print("\n=== Del f - Utskrift av fordelingen mellom positive, nøytrale og negative hendvendelser ===")
 print(f"Antall negative hendvendelser er: {ant_neg}")        
 print(f"Antall nøytrale hendvendelser er: {ant_noyt}")
 print(f"Antall positive hendvendelser er: {ant_pos}")
 
 # Totalsummering av antall som har gitt score
 tot_ant_score = ant_pos + ant_noyt + ant_neg
-print(f"Det totale antallet som har gitt en score er: {tot_ant_score}")
+print(f"\nDet totale antallet som har gitt en score er: {tot_ant_score}")
 
 # Utregning av NPS
 
@@ -180,7 +182,7 @@ perc_nega = (ant_neg/tot_ant_score)
 
 NPS = round(((perc_prom - perc_nega)*100))
 
-print("Antallet kunder som er positive er: ", round(perc_prom*100), "mens prosentent nøytrale er", round(perc_pass*100), "og prosent andel negative er: ", round(perc_nega*100))
+print("\nAntallet kunder som er positive er: ", round(perc_prom*100), " prosent mens prosenten nøytrale er", round(perc_pass*100), "prosent og prosent andel negative er: ", round(perc_nega*100), "prosent")
 print("Dette vil da gi en Net Promoter Score (NPS) på verdien: ", NPS)
 
 
