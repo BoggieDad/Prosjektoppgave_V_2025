@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 """
 Created on Sun Mar 30 11:10:14 2025
 
 @author: borgar stenseth
 e-post: borgar.stenseth@gmail.com
 
-Dette er phyton filen som er laget for å løse den ferdigdefinerte prosjektoppgaven
+Dette er phyton filen som er laget for å løse den ferdig definerte prosjektoppgaven
 """
 # %% Del A - les inn fra filen og generer 4 arrays i 4 kolonner
 
@@ -25,10 +24,10 @@ varighet = sup_w_24['Varighet'].to_numpy()
 score = sup_w_24['Tilfredshet'].to_numpy()
 
 # Skriv ut NumPy-arrays
-print("Kolonne 1:", u_dag)
-print("Kolonne 2:", kl_slett)
-print("Kolonne 3:", varighet)
-print("Kolonne 4:", score)
+#print("Kolonne 1:", u_dag)
+#print("Kolonne 2:", kl_slett)
+#print("Kolonne 3:", varighet)
+#print("Kolonne 4:", score)
 
 # %% Del B - Skrive ett program som finer antall hendvendelser gor hver ukeda i uken 24 og hvis det i ett plott
 
@@ -103,4 +102,73 @@ print(f"Middelverdi i sekunder: {mid_varighet_sek:.4f}") #med fire desimaler
 print(f"Middelverdi som hh:mm:ss: {tid_formatert}") #utskrift som viser orginalt tidsformat.
 
 # %% Del e - Andtall hendvendelser per 2-timers bolk.
+
+from datetime import datetime
+
+kl_slett_konv = [datetime.strptime(element, "%H:%M:%S").time() for element in kl_slett]    #Konvertererr slik at vikan gjøre if statement og valg på klokkeslett
+
+# Initialiserer tellere for de oppgitte tidsperiodene
+ant_8_10 = 0
+ant_10_12 = 0
+ant_12_14 = 0 
+ant_14_16 = 0
+
+# Bruke en for løkke for å telle innenfor hvert tidsområde
+
+for tids_omr in kl_slett_konv:
+    if 8 <= tids_omr.hour <10:
+        ant_8_10 += 1
+    elif 10 <= tids_omr.hour <12:
+        ant_10_12 += 1
+    elif 12 <= tids_omr.hour <14:
+        ant_12_14 +=1
+    elif 14 <= tids_omr.hour <16:
+        ant_14_16 +=1 
+        
+        
+# Totalsummering
+totalt_antall_1 = henv_man + henv_tir + henv_ons + henv_tor + henv_fre
+totalt_antall_2 = ant_8_10 + ant_10_12 + ant_12_14 + ant_14_16
+        
+# Utskrift av antall per tidsområde
+
+print(f"Antallet hendvendelser mellom klokka 8 og 10 er: {ant_8_10} fordelt over 5 ukedager")
+print(f"Antallet hendvendelser mellom klokka 10 og 12 er: {ant_10_12} fordelt over 5 ukedager")
+print(f"Antallet hendvendelser mellom klokka 12 og 14 er: {ant_12_14} fordelt over 5 ukedager")
+print(f"Antallet hendvendelser mellom klokka 14 og 16 er: {ant_14_16} fordelt over 5 ukedager")
+print(f"Som en test, totalt antall ved å summere hendvedelser per dag, som er: {totalt_antall_1} skal være lik summering av tidsperioder {totalt_antall_2}")
+
+# %% Del f - kundens tilfredshet 
+
+ant_neg = 0
+ant_noyt = 0
+ant_pos = 0
+
+for ant_pos_noyt_neg in score:
+    if 0 <= ant_pos_noyt_neg <=6:
+        ant_neg += 1
+    elif 7 <= ant_pos_noyt_neg <=8:
+        ant_noyt += 1
+    elif 9 <= ant_pos_noyt_neg <=10:
+        ant_pos += 1
+        
+print(f"Antall negative hendvendelser er: {ant_neg}")        
+print(f"Antall nøytrale hendvendelser er: {ant_noyt}")
+print(f"Antall positive hendvendelser er: {ant_pos}")
+
+# Totalsummering av antall som har gitt score
+tot_ant_score = ant_pos + ant_noyt + ant_neg
+print(f"Det totale antallet som har gitt en score er: {tot_ant_score}")
+
+# Utregning av NPS
+
+perc_prom = (ant_pos/tot_ant_score)
+perc_pass = (ant_noyt/tot_ant_score)
+perc_nega = (ant_neg/tot_ant_score)
+
+NPS = round(((perc_prom - perc_nega)*100))
+
+print("Antallet kunder som er positive er: ", round(perc_prom*100), "mens prosentent nøytrale er", round(perc_pass*100), "og prosent andel negative er: ", round(perc_nega*100))
+print("Dette vil da gi en Net Promoter Score (NPS) på verdien: ", NPS)
+
 
