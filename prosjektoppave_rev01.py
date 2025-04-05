@@ -37,7 +37,10 @@ henv_tir = np.sum(u_dag == 'Tirsdag')
 henv_ons = np.sum(u_dag == 'Onsdag')
 henv_tor = np.sum(u_dag == 'Torsdag')
 henv_fre = np.sum(u_dag == 'Fredag')
+print("Utskrift av oppgave del b, dette blir også plottet i ett eget plott")
 print("Antall hendvendelser på mandag er: ", henv_man, "tirsdag er:", henv_tir, "onsdag er:", henv_ons, "torsdag er:", henv_tor, "og fredag er:", henv_fre)
+
+print("Se også plottet for grafisk fremstilling")
 
 # Telle antall hendelser per dag
 
@@ -56,13 +59,12 @@ for dag, antall in soterte_dager:
 
 
 # Sorter data i henhold til ønsket rekkefølge
-sorterte_dager = [order.index(dag) for dag in per_dag]
+sorterte_dager = [order.index(dag) for dag in per_dag] #Sortere slik at dagene blir man til fredag og ikke alfabetisk
 sorteringsindeks = np.argsort(sorterte_dager)
 per_dag_sortert = per_dag[sorteringsindeks]
 ant_per_dag_sortert = ant_per_dag[sorteringsindeks]
 
 # plotting av hendvendelser per dag
-
 plt.close('all')
 plt.bar(per_dag_sortert, ant_per_dag_sortert, color='skyblue')  # Bruk markører for klarhet
 plt.xlabel('ukedager')
@@ -70,3 +72,10 @@ plt.ylabel('antall hendvendelser')
 plt.grid(axis='y', color='pink', linestyle='--', linewidth=0.8, alpha=0.5)
 
 plt.show()
+
+# %% Del C - Skriv ett program som finner minste og lengste samtale
+
+kl_slett_max = np.argmax(varighet)
+varighet_max = varighet[kl_slett_max]
+print("Den lengste samtalen var klokken: ", kl_slett_max, "og varte i: ", varighet_max)
+print("klokkeslett", kl_slett)
