@@ -8,10 +8,16 @@ Dette er phyton filen som er laget for å løse den ferdig definerte prosjektopp
 """
 # %% Del A - les inn fra filen og generer 4 arrays i 4 kolonner
 
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+
+print("""
+####################################################################
+Dette er starten på utskriftene for prosjektoppgaven.
+Prosjektoppgaven består av 6 deloppgaver (del a, b, c , d og e)
+####################################################################
+""")
 
 # Leser excel filen
 sup_w_24 = pd.read_excel("support_uke_24.xlsx") # filnavnet er support_uke_24
@@ -31,7 +37,7 @@ tabell = list(zip(u_dag, kl_slett, varighet, score))
 headers = ["Ukedag", "Klokkeslett", "Varighet", "Score"]
 
 # Skrive tabellen
-print("\n=== Oppgave del a - Skriver ut verdiene som et tabell for dataen som er lest inn fra excelfilen ===")
+print("\n=== Oppgave del a - Skriver ut verdiene som et tabell for dataen som er lest inn fra excel filen ===")
 print(tabulate(tabell, headers=headers, tablefmt="fancy_grid"))
 
 # %% Del B - Skrive ett program som finner antall hendvendelser for hver ukedag i uken 24 og vis det i ett plott
@@ -42,8 +48,8 @@ henv_ons = np.sum(u_dag == 'Onsdag')
 henv_tor = np.sum(u_dag == 'Torsdag')
 henv_fre = np.sum(u_dag == 'Fredag')
 
-print("\n === Utskrift av oppgave del b, dette blir også plottet i ett eget plott ===")
-print("Antall hendvendelser på mandag er: ", henv_man, "tirsdag er:", henv_tir, "onsdag er:", henv_ons, "torsdag er:", henv_tor, "og fredag er:", henv_fre)
+print("\n === Oppgave del b  - antall hendvendelser per ukdedag - dette blir også plottet i ett eget plott ===")
+print("\nAntall hendvendelser på mandag er: ", henv_man, "tirsdag er:", henv_tir, "onsdag er:", henv_ons, "torsdag er:", henv_tor, "og fredag er:", henv_fre)
 
 
 # Telle antall hendelser per dag
@@ -58,7 +64,7 @@ order = ['Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag']
 soterte_dager = sorted(zip(per_dag, ant_per_dag), key=lambda x: order.index(x[0]))
 
 # Skrive ut resultatene
-print("\nAlternativ måte å skrive ut antall hendvendelser i oppgave del b på") 
+print("\nAlternativ måte å skrive ut antall hendvendelser i oppgave del b på:") 
 for dag, antall in soterte_dager:
     print(f"{dag} var det {antall} support hendvendelser.")
 
@@ -95,7 +101,7 @@ u_dag_max = u_dag[kl_slett_max]
 u_dag_min = u_dag[kl_slett_min]
 
 
-print("\n=== Del c - Utskrift av den største og minste samtale varigheten ===")
+print("\n=== Oppgave del c - Utskrift av den største og minste samtale varigheten ===")
 print("Den lengste samtalen var klokken: ", kl_slett_max_var, "paa", u_dag_max, "og varte i: ", varighet_max, "hh:mm:ss")
 print("Den korteste samtalen var klokken: ", kl_slett_min_var, "paa", u_dag_min,"og varte i: ", varighet_min, "hh:mm:ss")
 
@@ -159,9 +165,9 @@ print(f"Antallet hendvendelser mellom klokka 8 og 10 er: {ant_8_10} fordelt over
 print(f"Antallet hendvendelser mellom klokka 10 og 12 er: {ant_10_12} fordelt over 5 ukedager")
 print(f"Antallet hendvendelser mellom klokka 12 og 14 er: {ant_12_14} fordelt over 5 ukedager")
 print(f"Antallet hendvendelser mellom klokka 14 og 16 er: {ant_14_16} fordelt over 5 ukedager")
-print("\n=== Test og sammenligning at alle entries er tatt med. ===")
-print(f"Som en test, totalt antall ved å summere hendvedelser per dag (fra oppg b), som er: {totalt_antall_1} skal være lik summering av tidsperioder {totalt_antall_2}")
-print("\nSe plott for visualisert kakediagram")
+print("\n** Test og sammenligning at alle entries er tatt med. **")
+print(f"Som en test, totalt antall ved å summere hendvedelser per dag (fra oppg b), som er: {totalt_antall_1} \nskal være lik summering av tidsperioder som er: {totalt_antall_2}")
+print("\nSe også plott for visualisering i ett kakediagram")
 
 
 # plotting av hendvendelser per tidsperiode
@@ -191,7 +197,7 @@ for ant_pos_noyt_neg in score:
     elif 9 <= ant_pos_noyt_neg <=10:
         ant_pos += 1
         
-print("\n=== Del f - Utskrift av fordelingen mellom positive, nøytrale og negative hendvendelser ===")
+print("\n=== Oppgave del f - Utskrift av fordelingen mellom positive, nøytrale og negative hendvendelser ===")
 print(f"Antall negative hendvendelser er: {ant_neg}")        
 print(f"Antall nøytrale hendvendelser er: {ant_noyt}")
 print(f"Antall positive hendvendelser er: {ant_pos}")
@@ -211,5 +217,13 @@ NPS = round(((perc_prom - perc_nega)*100))
 
 print("\nAntallet kunder som er positive er:", round(perc_prom*100), " prosent mens prosentandelen nøytrale er", round(perc_pass*100), "prosent og prosentandel negative er:", round(perc_nega*100), "prosent")
 print("Dette vil da gi en Net Promoter Score (NPS) på verdien:", NPS)
+print("""
+####################################################################
+Dette er slutten av utskriftene for prosjektoppgaven.
+Takk for at du kikket på skriptet mitt
+Takk for ett hyggelig kurs
+Ha en fortsatt fin dag :o)
+####################################################################
+""")
 
 
