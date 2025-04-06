@@ -1,15 +1,15 @@
-# Prosjektoppgave - Prosjekt for innlevering i USN - PY1010 studiet
+# Prosjektoppgave - Phyton prosjekt for innlevering i faget PY1010 studiet ved USN
 
 ## Beskrivelse
 Dette prosjektet er en del av PY1010 ved [USN. Dette er en oppgave som er definert av USN lærere og den ferdigdefinerte oppgaven består av 6 deloppgaver, hvor minst 5 av de 6 deloppgavene skal besvares. Oppgaven handler om oppgaver som skal løses i ett tenkt scenario der telefonselskapet MORSE har loggført kundehendvendelser i uke 24 og loggført denne informasjonen i n excel fil. Prosjektoppgaven og løsningnen av den vil gi praktisk anvendelse av flere av temaene som er dekket i kurset.
 
 ---
-
 ## Oppgaveformål
-Typiske ting som skal dekkes i form av kodetekniske temaer som: arrays, vektoriserte beregninger, if/else-tester, for- eller while-løkke, lese data fra fil, skrive data til fil, plotting, og egendefinerte funksjoner. Innleveringen skal inneholde:
-• Kjørbar kode (en py-fil eller JNB-fil som inneholder all kode). All kode skal dokumenteres med korte informative kommentarer
-• Tilleggsfiler, f.eks. filer med data som skal leses inn
-• Et viktig moment med innleveringen er at koden du leverer fra deg er grundig testet og at den er kjørbar for mottaker.
+Typiske ting som skal dekkes i form av kodetekniske temaer som: arrays, if/else-tester, for eller while-løkke, lese data fra fil, skrive data til fil, plotting, og egendefinerte funskjoner som vi har lært som endel av kurset. Innleveringen skal inneholde:
+- Kjørbar kode (.py-fil eller JNB-fil som inneholder all kode). All kod skal dokumenteres med korte informative kommentarer.
+- Tilleggsfiler, f.eks filer med data som skal leses inn.
+- Ett viktig element med innleveringen er at koden som leveres er grundig testet og at den er kjørbar for mottaker.
+
 ---
 
 ## Kravspesifikasjon
@@ -29,7 +29,7 @@ Typiske ting som skal dekkes i form av kodetekniske temaer som: arrays, vektoris
 
 ## Resultater
 Prosjektet genererer følgende resultater:
-- plots, utskrifter og filer i pdf.
+- plots, utskrifter i ett konsoll vindu og fil lagret i pdf format.
 
 ---
 
