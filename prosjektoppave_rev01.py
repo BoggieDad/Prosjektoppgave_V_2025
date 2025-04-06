@@ -113,7 +113,7 @@ tid_formatert = f"{int(timer):02}:{int(minutter):02}:{int(sekunder):02}"
 print(f"\nMiddelverdi i sekunder (4 desimaler): {mid_varighet_sek:.4f}") #med fire desimaler
 print(f"Middelverdi som hh:mm:ss: {tid_formatert}") #utskrift som viser orginalt tidsformat.
 
-# %% Del e - Andtall hendvendelser per 2-timers bolk.
+# %% Del e - Antall hendvendelser per 2-timers bolk.
 
 from datetime import datetime
 
@@ -150,10 +150,25 @@ print(f"Antallet hendvendelser mellom klokka 10 og 12 er: {ant_10_12} fordelt ov
 print(f"Antallet hendvendelser mellom klokka 12 og 14 er: {ant_12_14} fordelt over 5 ukedager")
 print(f"Antallet hendvendelser mellom klokka 14 og 16 er: {ant_14_16} fordelt over 5 ukedager")
 print("\n=== Test og sammenligning at alle entries er tatt med. ===")
-print(f"Som en test, totalt antall ved å summere hendvedelser per dag, som er: {totalt_antall_1} skal være lik summering av tidsperioder {totalt_antall_2}")
+print(f"Som en test, totalt antall ved å summere hendvedelser per dag (fra oppg b), som er: {totalt_antall_1} skal være lik summering av tidsperioder {totalt_antall_2}")
+print("\nSe plott for visualisert kakediagram")
+
+
+# plotting av hendvendelser per tidsperiode
+plt.close('all')
+values = [ant_8_10, ant_10_12, ant_12_14, ant_14_16]
+labels = ["8-10", "10-12", "12-14", "14-16"]
+colors = ["lightblue", "lightgreen", "lightyellow", "lightpink"]
+plt.pie(values, labels=labels, autopct='%1.1f%%', colors=colors, startangle=90)
+
+# Legg til en tittel
+plt.title("Fordeling av hendvendelser per skift og tidsperiode")
+
+plt.show()
 
 # %% Del f - kundens tilfredshet 
 
+# Initialisere tellere for positiv, negativ og nøytrale tilbakemeld.
 ant_neg = 0
 ant_noyt = 0
 ant_pos = 0
