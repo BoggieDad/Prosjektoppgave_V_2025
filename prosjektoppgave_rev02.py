@@ -178,7 +178,10 @@ colors = ["lightblue", "lightgreen", "lightyellow", "lightpink"]
 plt.pie(values, labels=labels, autopct='%1.1f%%', colors=colors, startangle=90)
 
 # Legg til en tittel
-plt.title("Fordeling av hendvendelser supportavdelingen \n mottok i prosent per skift og 2-timers tidsperiode")
+plt.title("Fordeling av hendvendelser supportavdelingen \n mottok prosentvis per skift og 2-timers tidsperiode")
+
+# Lagre plottet i en fil
+plt.savefig('fig_plot_kakediagram.pdf')
 
 plt.show()
 
