@@ -157,12 +157,12 @@ print("\nSe plott for visualisert kakediagram")
 # plotting av hendvendelser per tidsperiode
 plt.close('all')
 values = [ant_8_10, ant_10_12, ant_12_14, ant_14_16]
-labels = ["8-10", "10-12", "12-14", "14-16"]
+labels = ["Support vakt \n kl 8-10", "Support vakt \n kl 10-12", "Support vakt \n kl 12-14", "Support vakt \n kl 14-16"]
 colors = ["lightblue", "lightgreen", "lightyellow", "lightpink"]
 plt.pie(values, labels=labels, autopct='%1.1f%%', colors=colors, startangle=90)
 
 # Legg til en tittel
-plt.title("Fordeling av hendvendelser per skift og tidsperiode")
+plt.title("Fordeling av hendvendelser supportavdelingen \n mottok i prosent per skift og 2-timers tidsperiode")
 
 plt.show()
 
