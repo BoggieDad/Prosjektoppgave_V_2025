@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 # Leser excel filen
 sup_w_24 = pd.read_excel("support_uke_24.xlsx") # filnavnet er support_uke_24
 
-#konverterer kolonner til NP arrays
+# konverterer kolonner til NP arrays
 
 u_dag = sup_w_24['Ukedag'].to_numpy() #Data fra excel files kolonne 1 legges inn i var uke dag
 kl_slett = sup_w_24['Klokkeslett'].to_numpy()
@@ -196,6 +196,7 @@ perc_prom = (ant_pos/tot_ant_score)
 perc_pass = (ant_noyt/tot_ant_score)
 perc_nega = (ant_neg/tot_ant_score)
 
+# Utregning av Net Promoter Score, ref https://www.blueprnt.com/2018/09/17/net-promoter-score/
 NPS = round(((perc_prom - perc_nega)*100))
 
 print("\nAntallet kunder som er positive er:", round(perc_prom*100), " prosent mens prosentandelen nøytrale er", round(perc_pass*100), "prosent og prosentandel negative er:", round(perc_nega*100), "prosent")
