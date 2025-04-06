@@ -23,6 +23,16 @@ kl_slett = sup_w_24['Klokkeslett'].to_numpy()
 varighet = sup_w_24['Varighet'].to_numpy()
 score = sup_w_24['Tilfredshet'].to_numpy()
 
+# Skrive ut verdiene i en tabell
+from tabulate import tabulate
+
+# Verdiene som skal vises i tabellen
+tabell = list(zip(u_dag, kl_slett, varighet, score))
+headers = ["Ukedag", "Klokkeslett", "Varighet", "Score"]
+
+# Skrive tabellen
+print("\n=== Oppgave del a - Skriver ut verdiene som et tabell for dataen som er lest inn fra excelfilen ===")
+print(tabulate(tabell, headers=headers, tablefmt="fancy_grid"))
 
 # %% Del B - Skrive ett program som finner antall hendvendelser for hver ukedag i uken 24 og vis det i ett plott
 
@@ -200,6 +210,6 @@ perc_nega = (ant_neg/tot_ant_score)
 NPS = round(((perc_prom - perc_nega)*100))
 
 print("\nAntallet kunder som er positive er:", round(perc_prom*100), " prosent mens prosentandelen nøytrale er", round(perc_pass*100), "prosent og prosentandel negative er:", round(perc_nega*100), "prosent")
-print("Dette vil da gi en Net Promoter Score (NPS) på verdien: ", NPS)
+print("Dette vil da gi en Net Promoter Score (NPS) på verdien:", NPS)
 
 
